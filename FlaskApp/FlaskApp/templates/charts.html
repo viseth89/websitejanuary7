@@ -27,7 +27,7 @@
     </head>
     <body>
 
-  
+
 
 
         <div class="header">
@@ -200,6 +200,8 @@
             ]
         };
 
+
+
         var data = {
             labels: [
         "Red",
@@ -207,7 +209,7 @@
       ],
         datasets: [
         {
-            data: [ 200 , 300],
+            data: [ {{assista}} ,{{ assistb }} ],
             backgroundColor: [
                 "#FF6384",
                 "#36A2EB",
@@ -225,11 +227,10 @@
             labels: [
         "Red",
         "Blue",
-        "Yellow"
     ],
     datasets: [
         {
-            data: [100, 200, ],
+            data: [{{reboundsa}}, {{reboundsb}}, ],
             backgroundColor: [
                 "#FF6384",
                 "#36A2EB",
@@ -244,26 +245,24 @@
 };
 
 
-        var data3 = {
-            labels: [
-        "Red",
-        "Blue",
-        "Yellow"
+
+var data3 = {
+    labels: [
+"Red",
+"Blue",
+],
+datasets: [
+{
+    data: [{{oreboundsa}},{{oreboundsb}}],
+    backgroundColor: [
+        "#FF6384",
+        "#36A2EB",
     ],
-    datasets: [
-        {
-            data: [300, 50, 100],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ]
-        }]
+    hoverBackgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+    ]
+}]
 };
 
 
@@ -272,20 +271,17 @@
             labels: [
               "Red",
               "Blue",
-              "Yellow"
               ],
               datasets: [
               {
-                  data: [300, 50, 100],
+                  data: [{{turnoverb}}, {{turnovera}}],
                   backgroundColor: [
                       "#FF6384",
                       "#36A2EB",
-                      "#FFCE56"
                   ],
                   hoverBackgroundColor: [
                       "#FF6384",
                       "#36A2EB",
-                      "#FFCE56"
             ]
         }]
         };
@@ -301,16 +297,14 @@
               ],
               datasets: [
               {
-                  data: [300, 50, 100],
+                  data: [{{steala}}, {{stealb}}],
                   backgroundColor: [
                       "#FF6384",
                       "#36A2EB",
-                      "#FFCE56"
                   ],
                   hoverBackgroundColor: [
                       "#FF6384",
                       "#36A2EB",
-                      "#FFCE56"
             ]
         }]
         };
@@ -322,20 +316,17 @@
             labels: [
         "Red",
         "Blue",
-        "Yellow"
     ],
     datasets: [
         {
-            data: [300, 50, 100],
+            data: [{{blocksa}},{{blocksb}}],
             backgroundColor: [
                 "#FF6384",
                 "#36A2EB",
-                "#FFCE56"
             ],
             hoverBackgroundColor: [
                 "#FF6384",
                 "#36A2EB",
-                "#FFCE56"
             ]
         }]
 };
@@ -417,8 +408,8 @@ datasets: [
 
           var chart1 = document.getElementById("canvas1").getContext("2d");
           window.myBar = new Chart(chart1, {
-              type: 'bar',
-              data: barChartData,
+              type: 'pie',
+              data: data,
               options: {
                   responsive: true,
                   legend: {
@@ -431,33 +422,35 @@ datasets: [
               }
           });
 
+          var chart2 = document.getElementById("canvas2").getContext("2d");
+          window.myBar = new Chart(chart2, {
+              type: 'pie',
+              data: data2,
+              options: {
+                  responsive: true,
+                  legend: {
+                      position: 'top'
+                  },
+                  title: {
+                      display: true,
+                      text: 'Dominance on Offensive Rebounds:'
+                  }
+              }
+          });
 
 
 
 
 
-            var chart2 = document.getElementById("canvas2").getContext("2d");
-            window.myBar = new Chart(chart2, {
-                type: 'bar',
-                data: barChartData,
-                options: {
-                    responsive: true,
-                    legend: {
-                        position: 'top'
-                    },
-                    title: {
-                        display: true,
-                        text: 'Dominance on Total Rebounds:'
-                    }
-                }
-            });
+
+
 
 
 
             var chart3 = document.getElementById("canvas3").getContext("2d");
             window.myBar = new Chart(chart3, {
                 type: 'pie',
-                data: data,
+                data: data3,
                 options: {
                     responsive: true,
                     legend: {
@@ -474,7 +467,7 @@ datasets: [
             var chart4 = document.getElementById("canvas4").getContext("2d");
             window.myBar = new Chart(chart4,{
               type: 'pie',
-              data: data,
+              data: data4,
               options: {
                   responsive: true,
                   legend: {
@@ -494,7 +487,7 @@ datasets: [
             var chart5 = document.getElementById("canvas5").getContext("2d");
             window.myBar = new Chart(chart5,{
               type: 'pie',
-              data: data,
+              data: data5,
               options: {
                   responsive: true,
                   legend: {
@@ -510,7 +503,7 @@ datasets: [
           var chart6 = document.getElementById("canvas6").getContext("2d");
           window.myBar = new Chart(chart6,{
             type: 'pie',
-            data: data,
+            data: data6,
             options: {
                 responsive: true,
                 legend: {
