@@ -2,246 +2,224 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Bootstrap 101 Template</title>
 
-    <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <![endif]-->
-    </head>
-    <body>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <![endif]-->
+  </head>
+  <body>
 
+  <div class="header">
+  <div class="container">
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Brand</a>
+              </div>
 
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                      <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                      <li><a href="#">Link</a></li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li><a href="#">Something else here</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">One more separated link</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <form class="navbar-form navbar-left">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Link</a></li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li><a href="#">Something else here</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+      </nav>
+  </div>
+  </div>
 
+<div class='container'>
+<div class="row">
+    <div class='col-md-12'>
+        <img src="{{ url_for('static', filename='9697TeamPortrait.jpg') }}" alt="Bulls Team Lineup" class='img-responsive'>
+    </div>
+</div>
 
-        <div class="header">
-                <div class="container">
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="#">Brand</a>
-                            </div>
-
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#">Link</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="#">One more separated link</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <form class="navbar-form navbar-left">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search">
-                                    </div>
-                                    <button type="submit" class="btn btn-default">Submit</button>
-                                </form>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="#">Link</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.navbar-collapse -->
-                        </div>
-                        <!-- /.container-fluid -->
-                    </nav>
-                </div>
-            </div>
-
-
-            <div class='container'>
-                <div class="row">
-                    <div class='col-md-12'>
-                        <img src="{{ url_for('static', filename='9697TeamPortrait.jpg') }}" alt="Bulls Team Lineup" class='img-responsive'>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class='col-md-12'>
-                        <h1 class='text-center'>The Champion 1996 Chicago Bulls</h1>
-                    </div>
-                </div>
-
+<div class="row">
+    <div class='col-md-12'>
+        <h1 class='text-center'>{{ title }}</h1>
+        <p>{{ body }}</p>
+        <p>
+            {{home_score}} {{away_score}}
+        </p>
+    </div>
+</div>
 <br>
 <br>
 
-                <div class="row">
-                       <div class='col-md-4'>
-                           <canvas id="canvas1"></canvas>
-                       </div>
+<div class="row">
+    <div class='col-md-4'>
+        <canvas id="canvas1"></canvas>
+    </div>
 
 
-                        <div class='col-md-4'>
-                         <canvas id="canvas2"></canvas>
-                       </div>
+    <div class='col-md-4'>
+        <canvas id="canvas2"></canvas>
+    </div>
 
-                       <div class='col-md-4'>
-                         <canvas id="canvas3"></canvas>
-                       </div>
-                   </div>
+    <div class='col-md-4'>
+        <canvas id="canvas3"></canvas>
+    </div>
+</div>
 
 <br>
 <br>
 <br>
-             <div class="row">
-                    <div class='col-md-4'>
-                        <canvas id="canvas4"></canvas>
-                    </div>
+<div class="row">
+    <div class='col-md-4'>
+        <canvas id="canvas4"></canvas>
+    </div>
 
 
-                     <div class='col-md-4'>
-                      <canvas id="canvas5"></canvas>
-                    </div>
+    <div class='col-md-4'>
+        <canvas id="canvas5"></canvas>
+    </div>
 
-                    <div class='col-md-4'>
-                      <canvas id="canvas6"></canvas>
-                    </div>
-                </div>
-
-                <br>
-                <br>
-                <br>
-
-                <div class="row">
-                        <div class='col-md-4'>
-                           <canvas id="canvas7"></canvas>
-                       </div>
-
-
-                        <div class='col-md-4'>
-                         <canvas id="canvas8"></canvas>
-                       </div>
-
-                       <div class='col-md-4'>
-                         <canvas id="canvas9"></canvas>
-                       </div>
-                   </div>
+    <div class='col-md-4'>
+        <canvas id="canvas6"></canvas>
+    </div>
+</div>
 
 <br>
 <br>
 <br>
 
+<div class="row">
+    <div class='col-md-4'>
+        <canvas id="canvas7"></canvas>
+    </div>
 
 
-    <script>
+    <div class='col-md-4'>
+        <canvas id="canvas8"></canvas>
+    </div>
 
-        window.chartColors = {
-            red: 'rgb(255, 99, 132)',
-            orange: 'rgb(255, 159, 64)',
-            yellow: 'rgb(255, 205, 86)',
-            green: 'rgb(75, 192, 192)',
-            blue: 'rgb(54, 162, 235)',
-            purple: 'rgb(153, 102, 255)',
-            grey: 'rgb(231,233,237)'
-        };
-
-        window.randomScalingFactor = function () {
-            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-        };
-        var color = Chart.helpers.color;
-        var barChartData = {
-            labels: {{ home_score }},
-            datasets: [{
-                label: 'Tm',
-                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-                borderColor: window.chartColors.red,
-                borderWidth: 1,
-                data: {{ home_score }}
-            },
-            {
-                label: 'Opp',
-                backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-                borderColor: window.chartColors.red,
-                borderWidth: 1,
-                data: {{ away_score }}
-            }
-            ]
-        };
+    <div class='col-md-4'>
+        <canvas id="canvas9"></canvas>
+    </div>
+</div>
+<br>
+<br>
+<br>
+</div>
 
 
+<script>
 
-        var data = {
-            labels: [
-        "Red",
-        "Blue",
-      ],
-        datasets: [
-        {
-            data: [ {{assista}} ,{{ assistb }} ],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ]
-        }]
-        };
+window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(231,233,237)'
+};
 
-        var data2 = {
-            labels: [
-        "Red",
-        "Blue",
+window.randomScalingFactor = function () {
+    return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+};
+var color = Chart.helpers.color;
+
+var data = {
+    labels: [
+"Red",
+"Blue",
+],
+datasets: [
+{
+    data: [ {{assista}} ,{{ assistb }} ],
+    backgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+        "#FFCE56"
     ],
-    datasets: [
-        {
-            data: [{{reboundsa}}, {{reboundsb}}, ],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
+    hoverBackgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+        "#FFCE56"
+    ]
+}]
+};
 
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
+var data2 = {
+    labels: [
+"Red",
+"Blue",
+],
+datasets: [
+{
+    data: [{{reboundsa}}, {{reboundsb}}, ],
+    backgroundColor: [
+        "#FF6384",
+        "#36A2EB",
 
-            ]
-        }]
+    ],
+    hoverBackgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+
+    ]
+}]
 };
 
 
@@ -267,68 +245,65 @@ datasets: [
 
 
 
-        var data4 = {
-            labels: [
-              "Red",
-              "Blue",
-              ],
-              datasets: [
-              {
-                  data: [{{turnoverb}}, {{turnovera}}],
-                  backgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-                  ],
-                  hoverBackgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-            ]
-        }]
-        };
+var data4 = {
+    labels: [
+      "Red",
+      "Blue",
+      ],
+      datasets: [
+      {
+          data: [{{turnoverb}}, {{turnovera}}],
+          backgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+          ],
+          hoverBackgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+    ]
+}]
+};
 
 
 
 
-        var data5 = {
-            labels: [
-              "Red",
-              "Blue",
-              "Yellow"
-              ],
-              datasets: [
-              {
-                  data: [{{steala}}, {{stealb}}],
-                  backgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-                  ],
-                  hoverBackgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-            ]
-        }]
-        };
+var data5 = {
+    labels: [
+      "Red",
+      "Blue",
+      "Yellow"
+      ],
+      datasets: [
+      {
+          data: [{{steala}}, {{stealb}}],
+          backgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+          ],
+          hoverBackgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+    ]
+}]
+};
 
-
-
-
-        var data6 = {
-            labels: [
-        "Red",
-        "Blue",
+var data6 = {
+    labels: [
+"Red",
+"Blue",
+],
+datasets: [
+{
+    data: [{{blocksa}},{{blocksb}}],
+    backgroundColor: [
+        "#FF6384",
+        "#36A2EB",
     ],
-    datasets: [
-        {
-            data: [{{blocksa}},{{blocksb}}],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-            ]
-        }]
+    hoverBackgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+    ]
+}]
 };
 
 var data7 = {
@@ -398,183 +373,183 @@ datasets: [
 }]
 };
 
-
-
-
-
-
-        window.onload = function () {
-
-
-          var chart1 = document.getElementById("canvas1").getContext("2d");
-          window.myBar = new Chart(chart1, {
-              type: 'pie',
-              data: data,
-              options: {
-                  responsive: true,
-                  legend: {
-                      position: 'top'
-                  },
-                  title: {
-                      display: true,
-                      text: 'Dominance in Assists'
-                  }
-              }
-          });
-
-          var chart2 = document.getElementById("canvas2").getContext("2d");
-          window.myBar = new Chart(chart2, {
-              type: 'pie',
-              data: data2,
-              options: {
-                  responsive: true,
-                  legend: {
-                      position: 'top'
-                  },
-                  title: {
-                      display: true,
-                      text: 'Dominance on Offensive Rebounds:'
-                  }
-              }
-          });
-
-
-
-
-
-
-
-
-
-
-            var chart3 = document.getElementById("canvas3").getContext("2d");
-            window.myBar = new Chart(chart3, {
-                type: 'pie',
-                data: data3,
-                options: {
-                    responsive: true,
-                    legend: {
-                        position: 'top'
-                    },
-                    title: {
-                        display: true,
-                        text: 'Dominance on Offensive Rebounds:'
-                    }
-                }
-            });
-
-
-            var chart4 = document.getElementById("canvas4").getContext("2d");
-            window.myBar = new Chart(chart4,{
-              type: 'pie',
-              data: data4,
-              options: {
-                  responsive: true,
-                  legend: {
-                      position: 'top'
-                  },
-                  title: {
-                      display: true,
-                      text: 'How well did they Keep the Ball Safe vs '
-                  }
-              }
-            });
-
-
-
-
-
-            var chart5 = document.getElementById("canvas5").getContext("2d");
-            window.myBar = new Chart(chart5,{
-              type: 'pie',
-              data: data5,
-              options: {
-                  responsive: true,
-                  legend: {
-                      position: 'top'
-                  },
-                  title: {
-                      display: true,
-                      text: 'How dominant were they on Defensive Steals'
-                  }
-              }
-          });
-
-          var chart6 = document.getElementById("canvas6").getContext("2d");
-          window.myBar = new Chart(chart6,{
-            type: 'pie',
-            data: data6,
-            options: {
-                responsive: true,
-                legend: {
-                    position: 'top'
-                },
-                title: {
-                    display: true,
-                    text: 'How was more dominant on Defensive Blocks'
-                }
-            }
-        });
-
-        var chart7 = document.getElementById("canvas7").getContext("2d");
-        window.myBar = new Chart(chart7,{
-          type: 'pie',
-          data: data,
-          options: {
-              responsive: true,
-              legend: {
-                  position: 'top'
-              },
-              title: {
-                  display: true,
-                  text: 'With The Edge In Rebounding'
-              }
-          }
-      });
-
-      var chart8 = document.getElementById("canvas8").getContext("2d");
-      window.myBar = new Chart(chart8,{
-        type: 'pie',
-        data: data,
-        options: {
-            responsive: true,
-            legend: {
-                position: 'top'
+var barChartData = {
+            labels: {{ home_score }},
+            datasets: [{
+                label: 'Tm',
+                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.red,
+                borderWidth: 1,
+                data: {{ home_score }}
             },
-            title: {
-                display: true,
-                text: 'With The Edge In Assists'
+            {
+                label: 'Opp',
+                backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.red,
+                borderWidth: 1,
+                data: {{ away_score }}
             }
-        }
-    });
-
-        var chart9 = document.getElementById("canvas9").getContext("2d");
-        window.myBar = new Chart(chart9,{
-          type: 'pie',
-          data: data,
-          options: {
-              responsive: true,
-              legend: {
-                  position: 'top'
-              },
-              title: {
-                  display: true,
-                  text: 'With The Edge In Both'
-              }
-          }
-      });
-
-
-
-
+            ]
         };
 
-    </script>
+
+
+
+window.onload = function () {
+
+var chart1 = document.getElementById("canvas1").getContext("2d");
+window.myBar = new Chart(chart1, {
+    type: 'pie',
+    data: data,
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top'
+        },
+        title: {
+            display: true,
+            text: 'Dominance on Assists:'
+        }
+    }
+});
+
+var chart2 = document.getElementById("canvas2").getContext("2d");
+window.myBar = new Chart(chart2, {
+    type: 'pie',
+    data: data2,
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top'
+        },
+        title: {
+            display: true,
+            text: 'Dominance on Offensive Rebounds:'
+        }
+    }
+});
+
+var chart3 = document.getElementById("canvas3").getContext("2d");
+window.myBar = new Chart(chart3, {
+    type: 'pie',
+    data: data3,
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top'
+        },
+        title: {
+            display: true,
+            text: 'Dominance on Offensive Rebounds:'
+        }
+    }
+});
+
+var chart4 = document.getElementById("canvas4").getContext("2d");
+window.myBar = new Chart(chart4,{
+  type: 'pie',
+  data: data4,
+  options: {
+      responsive: true,
+      legend: {
+          position: 'top'
+      },
+      title: {
+          display: true,
+          text: 'How well did they Keep the Ball Safe vs '
+      }
+  }
+});
+
+var chart5 = document.getElementById("canvas5").getContext("2d");
+window.myBar = new Chart(chart5,{
+  type: 'pie',
+  data: data5,
+  options: {
+      responsive: true,
+      legend: {
+          position: 'top'
+      },
+      title: {
+          display: true,
+          text: 'How dominant were they on Defensive Steals'
+      }
+  }
+});
+
+var chart6 = document.getElementById("canvas6").getContext("2d");
+window.myBar = new Chart(chart6,{
+  type: 'pie',
+  data: data6,
+  options: {
+      responsive: true,
+      legend: {
+          position: 'top'
+      },
+      title: {
+          display: true,
+          text: 'How was more dominant on Defensive Blocks'
+      }
+  }
+});
+
+var chart7 = document.getElementById("canvas7").getContext("2d");
+window.myBar = new Chart(chart7,{
+  type: 'pie',
+  data: data7,
+  options: {
+      responsive: true,
+      legend: {
+          position: 'top'
+      },
+      title: {
+          display: true,
+          text: 'With The Edge In Rebounding'
+      }
+  }
+});
+
+var chart8 = document.getElementById("canvas8").getContext("2d");
+window.myBar = new Chart(chart8,{
+  type: 'pie',
+  data: data8,
+  options: {
+      responsive: true,
+      legend: {
+          position: 'top'
+      },
+      title: {
+          display: true,
+          text: 'With The Edge In Assists'
+      }
+  }
+});
+
+var chart9 = document.getElementById("canvas9").getContext("2d");
+window.myBar = new Chart(chart9,{
+  type: 'pie',
+  data: data9,
+  options: {
+      responsive: true,
+      legend: {
+          position: 'top'
+      },
+      title: {
+          display: true,
+          text: 'With The Edge In Both'
+      }
+  }
+});
+
+};
+
+</script>
 
     <div>
       <h3>Recap</h3>
       <p>Extra info here and pictures</p>
     </div>
+
 
 
 

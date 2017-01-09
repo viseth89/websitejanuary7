@@ -3,11 +3,11 @@
 <title>Upload</title>
 </head>
 <body>
-<form method="post" enctype="multipart/form-data">
-    {{ form.csrf_token }}
-    {{ form.hidden_tag() }}
-    {{ form.file }}
-    <input type="submit">
-</form>
+  <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+      ...
+      <input type=file name=photo>
+      <input type="submit">
+      ...
+  </form>
 </body>
 </html>

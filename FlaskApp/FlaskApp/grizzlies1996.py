@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 import json
 
-df = pd.read_csv('/var/www/FlaskApp/FlaskApp/static/bulls1996.csv')
+df = pd.read_csv('/var/www/FlaskApp/FlaskApp/static/grizzlies1996.csv')
 
 wins = df[df['W/L']=='W']
 loss = df[df['W/L']=='L']
@@ -32,7 +32,7 @@ wwwpct = len(astrebw)/len(astreb)
 
 bulls_score = []
 other_score=[]
-with open('/var/www/FlaskApp/FlaskApp/static/bulls1996.csv') as filename:
+with open('/var/www/FlaskApp/FlaskApp/static/grizzlies1996.csv') as filename:
     chart_data = csv.DictReader(filename)
     for row in chart_data:
         bulls_score.append(int(row['Tm']))
