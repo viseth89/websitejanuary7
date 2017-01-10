@@ -1,6 +1,6 @@
 import csv
 import os
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, flash, redirect
 from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
 from flask_wtf import Form
 from wtforms import FileField
@@ -15,11 +15,24 @@ photos = UploadSet('photos', IMAGES)
 app.config['UPLOADED_PHOTOS_DEST']= 'static/img'
 configure_uploads(app,photos)
 
+file_dir = ''
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    if request.method == 'POST' and 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
-        return filename ('uploaded.html')
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:    # IMPORTANT to call request.files instead of just files - request is an HTTP request which contains a dictionary of key-value pairs
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file:
+            file_dir = file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('uploaded_file', filename=filename))
     return render_template('upload.html')
 
 @app.route("/")
@@ -30,14 +43,6 @@ def index():
     away_score = []
 
     return render_template('index.html', title=title, body=body, home_score=home_score, away_score=away_score)
-"""
-    with open('bulls1996.csv') as filename:
-        chart_data = csv.DictReader(filename)
-        for row in chart_data:
-            home_score.append(int(row['Tm']))
-            away_score.append(int(row['Opp']))
-
-"""
 
 @app.route("/bulls")
 def bulls():
@@ -59,6 +64,8 @@ def bulls():
     stealb = len(b.steal_loss)
     blocksa = len(b.blocks_won)
     blocksb = len(b.blocks_loss)
+
+    #Will be removing extra lines of code soon, left only to display previous way of doing compared to newer, evolved ways below
 
     return render_template('charts.html',
     title=title,
@@ -147,6 +154,8 @@ def phil():
     assista = len(p.assist_won), assistb=len(p.assist_loss)
     )
 
+#Barkley is our test
+
 @app.route("/barkley")
 def barkley():
     title = 'Charles Barkley'
@@ -155,8 +164,6 @@ def barkley():
     return render_template('player.html',
 
     )
-
-
 
 if __name__ == "__main__":
     app.debug=True
