@@ -80,7 +80,7 @@
 <div class='container'>
 <div class="row">
     <div class='col-md-12'>
-        <img src="{{ url_for('static', filename='9697TeamPortrait.jpg') }}" alt="Bulls Team Lineup" class='center-block img-responsive'>
+        <img src="{{ url_for('static', filename='warriors.jpg') }}" alt="Bulls Team Lineup" class='center-block img-responsive'>
     </div>
 </div>
 
@@ -171,36 +171,34 @@ var color = Chart.helpers.color;
 
 var data = {
     labels: [
-"Red",
-"Blue",
+"Warriors",
+"Other",
 ],
 datasets: [
 {
     data: [ {{assista}} ,{{ assistb }} ],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
+        "orange",
+        "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
+      "orange",
+      "grey",
     ]
 }]
 };
 
 var data2 = {
     labels: [
-"Red",
-"Blue",
+      "Warriors",
+      "Other",
 ],
 datasets: [
 {
     data: [{{reboundsa}}, {{reboundsb}}, ],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "purple",
+      "grey",
 
     ],
     hoverBackgroundColor: [
@@ -215,19 +213,19 @@ datasets: [
 
 var data3 = {
     labels: [
-"Red",
-"Blue",
+      "Warriors",
+      "Other",
 ],
 datasets: [
 {
     data: [{{oreboundsa}},{{oreboundsb}}],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "orange",
+      "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "orange",
+      "grey",
     ]
 }]
 };
@@ -236,19 +234,19 @@ datasets: [
 
 var data4 = {
     labels: [
-      "Red",
-      "Blue",
+      "Warriors",
+      "Other",
       ],
       datasets: [
       {
           data: [{{turnoverb}}, {{turnovera}}],
           backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "orange",
+            "grey",
           ],
           hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "orange",
+            "grey",
     ]
 }]
 };
@@ -258,39 +256,38 @@ var data4 = {
 
 var data5 = {
     labels: [
-      "Red",
-      "Blue",
-      "Yellow"
+      "Warriors",
+      "Other",
       ],
       datasets: [
       {
           data: [{{steala}}, {{stealb}}],
           backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "purple",
+            "grey",
           ],
           hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "purple",
+            "grey",
     ]
 }]
 };
 
 var data6 = {
     labels: [
-"Red",
-"Blue",
+      "Warriors",
+      "Other",
 ],
 datasets: [
 {
     data: [{{blocksa}},{{blocksb}}],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "orange",
+      "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "orange",
+      "grey",
     ]
 }]
 };

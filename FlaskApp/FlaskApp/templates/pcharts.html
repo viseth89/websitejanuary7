@@ -80,7 +80,7 @@
 <div class='container'>
 <div class="row">
     <div class='col-md-12'>
-        <img src="{{ url_for('static', filename='9697TeamPortrait.jpg') }}" alt="Bulls Team Lineup" class='center-block img-responsive'>
+        <img src="{{ url_for('static', filename='philly76ers.jpg') }}" alt="Bulls Team Lineup" class='center-block img-responsive'>
     </div>
 </div>
 
@@ -171,41 +171,39 @@ var color = Chart.helpers.color;
 
 var data = {
     labels: [
-"Red",
-"Blue",
+"76ers",
+"Other",
 ],
 datasets: [
 {
     data: [ {{assista}} ,{{ assistb }} ],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
+      "blue",
+      "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
+      "blue",
+      "grey",
     ]
 }]
 };
 
 var data2 = {
     labels: [
-"Red",
-"Blue",
+      "Warriors",
+      "grey",
 ],
 datasets: [
 {
     data: [{{reboundsa}}, {{reboundsb}}, ],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "blue",
+      "grey",
 
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "blue",
+      "grey",
 
     ]
 }]
@@ -215,19 +213,19 @@ datasets: [
 
 var data3 = {
     labels: [
-"Red",
-"Blue",
+      "yellow",
+      "grey",
 ],
 datasets: [
 {
     data: [{{oreboundsa}},{{oreboundsb}}],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "blue",
+      "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "blue",
+      "grey",
     ]
 }]
 };
@@ -236,19 +234,19 @@ datasets: [
 
 var data4 = {
     labels: [
-      "Red",
-      "Blue",
+      "yellow",
+      "grey",
       ],
       datasets: [
       {
           data: [{{turnoverb}}, {{turnovera}}],
           backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "blue",
+            "grey",
           ],
           hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "blue",
+            "grey",
     ]
 }]
 };
@@ -258,39 +256,38 @@ var data4 = {
 
 var data5 = {
     labels: [
-      "Red",
-      "Blue",
-      "Yellow"
+      "yellow",
+      "grey",
       ],
       datasets: [
       {
           data: [{{steala}}, {{stealb}}],
           backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "blue",
+            "grey",
           ],
           hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+            "blue",
+            "grey",
     ]
 }]
 };
 
 var data6 = {
     labels: [
-"Red",
-"Blue",
+      "yellow",
+      "grey",
 ],
 datasets: [
 {
     data: [{{blocksa}},{{blocksb}}],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "blue",
+      "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+      "blue",
+      "grey",
     ]
 }]
 };

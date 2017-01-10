@@ -5,9 +5,8 @@ from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
 from flask_wtf import Form
 from wtforms import FileField
 from werkzeug.utils import secure_filename
-import bullstats as b
-import grizzlies1996 as g
 from finals2016 import *
+from Read_Game import Read_Game
 
 app = Flask(__name__)
 
@@ -20,14 +19,13 @@ configure_uploads(app,photos)
 def upload():
     if request.method == 'POST' and 'photo' in request.files:
         filename = photos.save(request.files['photo'])
-        return filename
+        return filename ('uploaded.html')
     return render_template('upload.html')
-
 
 @app.route("/")
 def index():
-    title = 'this is the title'
-    body = 'this is the body text'
+    title = 'Welcome To Nba Analytics with Python'
+    body = 'Thinkers of The Game'
     home_score = []
     away_score = []
 
@@ -41,14 +39,12 @@ def index():
 
 """
 
-
-
 @app.route("/bulls")
 def bulls():
+
+    b = Read_Game('/var/www/FlaskApp/FlaskApp/static/bulls1996.csv')
     title = 'The Champion 1996 Chicago Bulls'
     body = 'The first of second 3peat'
-    home_score = []
-    away_score = []
     reboundsa = len(b.trebounds_won)
     reboundsb = len(b.trebounds_loss)
     oreboundsa = len(b.orebounds_won)
@@ -67,8 +63,6 @@ def bulls():
     return render_template('charts.html',
     title=title,
     body=body,
-    home_score=home_score,
-    away_score=away_score,
     edgea=edgea, edgeb=edgeb,
     steala=steala, stealb=stealb,
     turnovera=turnovera, turnoverb=turnoverb,
@@ -87,8 +81,6 @@ def finals2016():
     return render_template('charts.html',
     title=title,
     body=body,
-    home_score=b.bulls_score,
-    away_score=b.other_score,
     edgea=len(b.astrebw), edgeb=len(b.astreb),
     steala=len(b.steal_won), stealb=len(b.steal_loss),
     turnovera = len(b.turnover_w), turnoverb = len(b.turnover_l),
@@ -100,14 +92,14 @@ def finals2016():
 
 @app.route("/grizzlies")
 def grizzlies():
+
+    g = Read_Game('/var/www/FlaskApp/FlaskApp/static/grizzlies1996.csv')
     title = 'Looking at the Worse 1996 NBA Team'
     body = 'Mean But True'
 
-    return render_template('charts.html',
+    return render_template('gcharts.html',
     title=title,
     body=body,
-    home_score=g.bulls_score,
-    away_score=g.other_score,
     edgea=len(g.astrebw), edgeb=len(g.astreb),
     steala=len(g.steal_won), stealb=len(g.steal_loss),
     turnovera = len(g.turnover_w), turnoverb = len(g.turnover_l),
@@ -116,6 +108,55 @@ def grizzlies():
     reboundsa=len(g.trebounds_won),reboundsb=len(g.trebounds_loss),
     assista = len(g.assist_won), assistb=len(g.assist_loss)
     )
+
+@app.route("/warriors")
+def warriors():
+
+    w = Read_Game('/var/www/FlaskApp/FlaskApp/static/warriors2016.csv')
+    title = 'Looking at the Best 2016 NBA Team'
+    body = 'Record Breaking'
+
+    return render_template('wcharts.html',
+    title=title,
+    body=body,
+    edgea=len(w.astrebw), edgeb=len(w.astreb),
+    steala=len(w.steal_won), stealb=len(w.steal_loss),
+    turnovera = len(w.turnover_w), turnoverb = len(w.turnover_l),
+    blocksa = len(w.blocks_won),blocksb = len(w.blocks_loss),
+    oreboundsa=len(w.orebounds_won),oreboundsb=len(w.orebounds_loss),
+    reboundsa=len(w.trebounds_won),reboundsb=len(w.trebounds_loss),
+    assista = len(w.assist_won), assistb=len(w.assist_loss)
+    )
+
+@app.route("/phil")
+def phil():
+
+    p = Read_Game('/var/www/FlaskApp/FlaskApp/static/76ers.csv')
+    title = 'Looking at the Worse 2016 NBA Team'
+    body = 'Tear Dropping 10 - 72 :( '
+
+    return render_template('pcharts.html',
+    title=title,
+    body=body,
+    edgea=len(p.astrebw), edgeb=len(p.astreb),
+    steala=len(p.steal_won), stealb=len(p.steal_loss),
+    turnovera = len(p.turnover_w), turnoverb = len(p.turnover_l),
+    blocksa = len(p.blocks_won),blocksb = len(p.blocks_loss),
+    oreboundsa=len(p.orebounds_won),oreboundsb=len(p.orebounds_loss),
+    reboundsa=len(p.trebounds_won),reboundsb=len(p.trebounds_loss),
+    assista = len(p.assist_won), assistb=len(p.assist_loss)
+    )
+
+@app.route("/barkley")
+def barkley():
+    title = 'Charles Barkley'
+    body = 'Round Mound '
+
+    return render_template('player.html',
+
+    )
+
+
 
 if __name__ == "__main__":
     app.debug=True

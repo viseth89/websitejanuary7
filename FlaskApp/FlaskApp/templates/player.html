@@ -80,7 +80,7 @@
 <div class='container'>
 <div class="row">
     <div class='col-md-12'>
-        <img src="{{ url_for('static', filename='9697TeamPortrait.jpg') }}" alt="Bulls Team Lineup" class='center-block img-responsive'>
+        <img src="{{ url_for('static', filename='philly76ers.jpg') }}" alt="Bulls Team Lineup" class='center-block img-responsive'>
     </div>
 </div>
 
@@ -97,7 +97,7 @@
 
 <div class="row">
     <div class='col-md-4'>
-        <canvas id="canvas1"></canvas>
+        <canvas id="canvas"></canvas>
     </div>
 
 
@@ -151,250 +151,40 @@
 <br>
 </div>
 
-
 <script>
+var lineChartData = {
+    labels: ["Data 1", "Data 2", "Data 3", "Data 4", "Data 5", "Data 6", "Data 7"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0)",
+        strokeColor: "rgba(220,180,0,1)",
+        pointColor: "rgba(220,180,0,1)",
+        data: [20, 30, 80, 20, 40, 10, 60]
+    }, {
+        fillColor: "rgba(151,187,205,0)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        data: [60, 10, 40, 30, 80, 30, 20]
+    }]
 
-window.chartColors = {
-    red: 'rgb(255, 99, 132)',
-    orange: 'rgb(255, 159, 64)',
-    yellow: 'rgb(255, 205, 86)',
-    green: 'rgb(75, 192, 192)',
-    blue: 'rgb(54, 162, 235)',
-    purple: 'rgb(153, 102, 255)',
-    grey: 'rgb(231,233,237)'
-};
+}
 
-window.randomScalingFactor = function () {
-    return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-};
-var color = Chart.helpers.color;
+Chart.defaults.global.animationSteps = 50;
+Chart.defaults.global.tooltipYPadding = 16;
+Chart.defaults.global.tooltipCornerRadius = 0;
+Chart.defaults.global.tooltipTitleFontStyle = "normal";
+Chart.defaults.global.tooltipFillColor = "rgba(0,160,0,0.8)";
+Chart.defaults.global.animationEasing = "easeOutBounce";
+Chart.defaults.global.responsive = true;
+Chart.defaults.global.scaleLineColor = "black";
+Chart.defaults.global.scaleFontSize = 16;
 
-var data = {
-    labels: [
-"Red",
-"Blue",
-],
-datasets: [
-{
-    data: [ {{assista}} ,{{ assistb }} ],
-    backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
-    ]
-}]
-};
-
-var data2 = {
-    labels: [
-"Red",
-"Blue",
-],
-datasets: [
-{
-    data: [{{reboundsa}}, {{reboundsb}}, ],
-    backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-
-    ]
-}]
-};
-
-
-
-var data3 = {
-    labels: [
-"Red",
-"Blue",
-],
-datasets: [
-{
-    data: [{{oreboundsa}},{{oreboundsb}}],
-    backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-    ]
-}]
-};
-
-
-
-var data4 = {
-    labels: [
-      "Red",
-      "Blue",
-      ],
-      datasets: [
-      {
-          data: [{{turnoverb}}, {{turnovera}}],
-          backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-          ],
-          hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-    ]
-}]
-};
-
-
-
-
-var data5 = {
-    labels: [
-      "Red",
-      "Blue",
-      "Yellow"
-      ],
-      datasets: [
-      {
-          data: [{{steala}}, {{stealb}}],
-          backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-          ],
-          hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-    ]
-}]
-};
-
-var data6 = {
-    labels: [
-"Red",
-"Blue",
-],
-datasets: [
-{
-    data: [{{blocksa}},{{blocksb}}],
-    backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-    ]
-}]
-};
-
-window.onload = function () {
-
-var chart1 = document.getElementById("canvas1").getContext("2d");
-window.myBar = new Chart(chart1, {
-    type: 'pie',
-    data: data,
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top'
-        },
-        title: {
-            display: true,
-            text: 'Dominance on Assists:'
-        }
-    }
+var ctx = document.getElementById("canvas").getContext("2d");
+var LineChartDemo = new Chart(ctx).Line(lineChartData, {
+    pointDotRadius: 10,
+    bezierCurve: false,
+    scaleShowVerticalLines: false,
+    scaleGridLineColor: "black"
 });
-
-var chart2 = document.getElementById("canvas2").getContext("2d");
-window.myBar = new Chart(chart2, {
-    type: 'pie',
-    data: data2,
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top'
-        },
-        title: {
-            display: true,
-            text: 'Dominance on Offensive Rebounds:'
-        }
-    }
-});
-
-var chart3 = document.getElementById("canvas3").getContext("2d");
-window.myBar = new Chart(chart3, {
-    type: 'pie',
-    data: data3,
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top'
-        },
-        title: {
-            display: true,
-            text: 'Dominance on Offensive Rebounds:'
-        }
-    }
-});
-
-var chart4 = document.getElementById("canvas4").getContext("2d");
-window.myBar = new Chart(chart4,{
-  type: 'pie',
-  data: data4,
-  options: {
-      responsive: true,
-      legend: {
-          position: 'top'
-      },
-      title: {
-          display: true,
-          text: 'How well did they Keep the Ball Safe vs '
-      }
-  }
-});
-
-var chart5 = document.getElementById("canvas5").getContext("2d");
-window.myBar = new Chart(chart5,{
-  type: 'pie',
-  data: data5,
-  options: {
-      responsive: true,
-      legend: {
-          position: 'top'
-      },
-      title: {
-          display: true,
-          text: 'How dominant were they on Defensive Steals'
-      }
-  }
-});
-
-var chart6 = document.getElementById("canvas6").getContext("2d");
-window.myBar = new Chart(chart6,{
-  type: 'pie',
-  data: data6,
-  options: {
-      responsive: true,
-      legend: {
-          position: 'top'
-      },
-      title: {
-          display: true,
-          text: 'How was more dominant on Defensive Blocks'
-      }
-  }
-});
-
-
-};
 
 </script>
 
