@@ -38,12 +38,10 @@ def show(id):
 
 @app.route("/")
 def index():
-    title = 'NBA Analytics with Python'
-    header = 'Welcome To NBA Analytics with Python'
-    body = 'Thinkers of The Game'
-
-
-    return render_template('index.html', header=header, title=title, body=body)
+    header = 'Welcome to NBA Analytics with Python'
+    title = 'Welcome to NBA Analytics with Python'
+    body = 'Thinkers of the Game'
+    return render_template('index.html', header=header, title=title,body=body)
 
 @app.route("/bulls")
 def bulls():
