@@ -19,30 +19,31 @@ file_dir = ''
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:    # IMPORTANT to call request.files instead of just files - request is an HTTP request which contains a dictionary of key-value pairs
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file:
-            file_dir = file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file', filename=filename))
+    if request.method == 'POST' and 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        rec = Photo(filename=filename, user=g.user.id)
+        rec.store()
+        flash("Photo saved.")
+        return redirect(url_for('show', id=rec.id))
     return render_template('upload.html')
+
+@app.route('/photo/<id>')
+def show(id):
+    photo = Photo.load(id)
+    if photo is None:
+        abort(404)
+    url = photos.url(photo.filename)
+    return render_template('show.html', url=url, photo=photo)
+
 
 @app.route("/")
 def index():
-    title = 'Welcome To Nba Analytics with Python'
+    title = 'NBA Analytics with Python'
+    header = 'Welcome To NBA Analytics with Python'
     body = 'Thinkers of The Game'
-    home_score = []
-    away_score = []
 
-    return render_template('index.html', title=title, body=body, home_score=home_score, away_score=away_score)
+
+    return render_template('index.html', header=header, title=title, body=body)
 
 @app.route("/bulls")
 def bulls():
