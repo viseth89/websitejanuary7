@@ -16,29 +16,41 @@
 
 <div class="row">
     <div class='col-md-12'>
-        <h1 class='text-center'>{{ title }}</h1>
-        <p class='text-center'>{{ body }}</p>
-        <p>
-        </p>
+      <h1 class='text-center'>{{ title }}</h1>
+      <h2 class='text-center'>{{ wins }} - Wins : {{loss}} - Losses </h2>
+<br>
     </div>
 </div>
 <br>
 <br>
 
+<<div class='text-center'>
+
+
 <div class="row">
     <div class='col-md-4'>
         <canvas id="canvas1"></canvas>
+        <br>
+        <p>Team > Opponents in : {{assista}} games </p>
+        <p>Team < Opponents in : {{assistb}} games </p>
     </div>
 
 
     <div class='col-md-4'>
         <canvas id="canvas2"></canvas>
+        <br>
+        <p>Team > Opponents in : {{reboundsa}} games </p>
+        <p>Team < Opponents in : {{reboundsb}} games </p>
     </div>
 
     <div class='col-md-4'>
         <canvas id="canvas3"></canvas>
+        <br>
+        <p>Team > Opponents in : {{oreboundsa}} games </p>
+        <p>Team < Opponents in : {{oreboundsb}} games </p>
     </div>
 </div>
+
 
 <br>
 <br>
@@ -46,39 +58,30 @@
 <div class="row">
     <div class='col-md-4'>
         <canvas id="canvas4"></canvas>
+        <br>
+        <p>Team > Opponents in : {{turnovera}} games </p>
+        <p>Team < Opponents in : {{turnoverb}} games </p>
     </div>
 
 
     <div class='col-md-4'>
         <canvas id="canvas5"></canvas>
+        <br>
+        <p>Team > Opponents in : {{steala}} games </p>
+        <p>Team < Opponents in : {{stealb}} games </p>
     </div>
 
     <div class='col-md-4'>
         <canvas id="canvas6"></canvas>
+        <br>
+        <p>Team > Opponents in : {{blocksa}} games </p>
+        <p>Team < Opponents in : {{blocksb}} games </p>
     </div>
 </div>
-
-<br>
-<br>
-<br>
-
-<div class="row">
-    <div class='col-md-4'>
-        <canvas id="canvas7"></canvas>
-    </div>
-
-
-    <div class='col-md-4'>
-        <canvas id="canvas8"></canvas>
-    </div>
-
-    <div class='col-md-4'>
-        <canvas id="canvas9"></canvas>
-    </div>
 </div>
 <br>
 <br>
-<br>
+
 </div>
 
 
@@ -100,43 +103,39 @@ window.randomScalingFactor = function () {
 var color = Chart.helpers.color;
 
 var data = {
-    labels: [
-"Red",
-"Blue",
-],
+  labels: [
+    "Grizzlies",
+    "Other",
+    ],
 datasets: [
 {
     data: [ {{assista}} ,{{ assistb }} ],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
+        "green",
+        "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-        "#FFCE56"
+        "green",
+        "grey",
     ]
 }]
 };
 
 var data2 = {
     labels: [
-"Red",
-"Blue",
-],
+      "Grizzlies",
+      "Other",
+      ],
 datasets: [
 {
     data: [{{reboundsa}}, {{reboundsb}}, ],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-
+        "brown",
+        "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-
+        "brown",
+        "grey",
     ]
 }]
 };
@@ -145,19 +144,19 @@ datasets: [
 
 var data3 = {
     labels: [
-"Red",
-"Blue",
-],
+      "Grizzlies",
+      "Other",
+      ],
 datasets: [
 {
     data: [{{oreboundsa}},{{oreboundsb}}],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+        "green",
+        "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+        "green",
+        "grey",
     ]
 }]
 };
@@ -166,20 +165,20 @@ datasets: [
 
 var data4 = {
     labels: [
-      "Red",
-      "Blue",
+      "Grizzlies",
+      "Other",
       ],
       datasets: [
       {
           data: [{{turnoverb}}, {{turnovera}}],
           backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+              "brown",
+              "grey",
           ],
           hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-    ]
+              "brown",
+              "grey",
+          ]
 }]
 };
 
@@ -188,39 +187,38 @@ var data4 = {
 
 var data5 = {
     labels: [
-      "Red",
-      "Blue",
-      "Yellow"
+      "Grizzlies",
+      "Other",
       ],
       datasets: [
       {
           data: [{{steala}}, {{stealb}}],
           backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
+              "green",
+              "grey",
           ],
           hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-    ]
+              "green",
+              "grey",
+          ]
 }]
 };
 
 var data6 = {
     labels: [
-"Red",
-"Blue",
-],
+      "Grizzlies",
+      "Other",
+      ],
 datasets: [
 {
     data: [{{blocksa}},{{blocksb}}],
     backgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+        "brown",
+        "grey",
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
+        "brown",
+        "grey",
     ]
 }]
 };
@@ -256,7 +254,7 @@ window.myBar = new Chart(chart2, {
         },
         title: {
             display: true,
-            text: 'Dominance on Offensive Rebounds:'
+            text: 'Dominance on Boards:'
         }
     }
 });

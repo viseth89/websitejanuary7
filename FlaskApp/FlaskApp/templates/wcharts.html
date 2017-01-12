@@ -16,29 +16,40 @@
 
 <div class="row">
     <div class='col-md-12'>
-        <h1 class='text-center'>{{ title }}</h1>
-        <p class='text-center'>{{ body }}</p>
-        <p>
-        </p>
+      <h1 class='text-center'>{{ title }}</h1>
+      <h2 class='text-center'>{{ wins }} - Wins : {{loss}} - Losses </h2>
+<br>
     </div>
 </div>
 <br>
 <br>
+<div class='text-center'>
+
 
 <div class="row">
     <div class='col-md-4'>
         <canvas id="canvas1"></canvas>
+        <br>
+        <p>Team > Opponents in : {{assista}} games </p>
+        <p>Team < Opponents in : {{assistb}} games </p>
     </div>
 
 
     <div class='col-md-4'>
         <canvas id="canvas2"></canvas>
+        <br>
+        <p>Team > Opponents in : {{reboundsa}} games </p>
+        <p>Team < Opponents in : {{reboundsb}} games </p>
     </div>
 
     <div class='col-md-4'>
         <canvas id="canvas3"></canvas>
+        <br>
+        <p>Team > Opponents in : {{oreboundsa}} games </p>
+        <p>Team < Opponents in : {{oreboundsb}} games </p>
     </div>
 </div>
+
 
 <br>
 <br>
@@ -46,40 +57,29 @@
 <div class="row">
     <div class='col-md-4'>
         <canvas id="canvas4"></canvas>
+        <br>
+        <p>Team > Opponents in : {{turnovera}} games </p>
+        <p>Team < Opponents in : {{turnoverb}} games </p>
     </div>
 
 
     <div class='col-md-4'>
         <canvas id="canvas5"></canvas>
+        <br>
+        <p>Team > Opponents in : {{steala}} games </p>
+        <p>Team < Opponents in : {{stealb}} games </p>
     </div>
 
     <div class='col-md-4'>
         <canvas id="canvas6"></canvas>
+        <br>
+        <p>Team > Opponents in : {{blocksa}} games </p>
+        <p>Team < Opponents in : {{blocksb}} games </p>
     </div>
 </div>
-
-<br>
-<br>
-<br>
-
-<div class="row">
-    <div class='col-md-4'>
-        <canvas id="canvas7"></canvas>
-    </div>
-
-
-    <div class='col-md-4'>
-        <canvas id="canvas8"></canvas>
-    </div>
-
-    <div class='col-md-4'>
-        <canvas id="canvas9"></canvas>
-    </div>
 </div>
 <br>
 <br>
-<br>
-</div>
 
 
 <script>
@@ -129,13 +129,11 @@ datasets: [
     backgroundColor: [
       "purple",
       "grey",
-
     ],
     hoverBackgroundColor: [
-        "#FF6384",
-        "#36A2EB",
-
-    ]
+      "purple",
+      "grey",
+]
 }]
 };
 
@@ -171,13 +169,13 @@ var data4 = {
       {
           data: [{{turnoverb}}, {{turnovera}}],
           backgroundColor: [
-            "orange",
+            "purple",
             "grey",
           ],
           hoverBackgroundColor: [
-            "orange",
+            "purple",
             "grey",
-    ]
+      ]
 }]
 };
 
@@ -193,11 +191,11 @@ var data5 = {
       {
           data: [{{steala}}, {{stealb}}],
           backgroundColor: [
-            "purple",
+            "orange",
             "grey",
           ],
           hoverBackgroundColor: [
-            "purple",
+            "orange",
             "grey",
     ]
 }]
@@ -212,13 +210,13 @@ datasets: [
 {
     data: [{{blocksa}},{{blocksb}}],
     backgroundColor: [
-      "orange",
+      "purple",
       "grey",
     ],
     hoverBackgroundColor: [
-      "orange",
+      "purple",
       "grey",
-    ]
+]
 }]
 };
 
@@ -251,7 +249,7 @@ window.myBar = new Chart(chart2, {
         },
         title: {
             display: true,
-            text: 'Dominance on Offensive Rebounds:'
+            text: 'Dominance on Boards:'
         }
     }
 });
