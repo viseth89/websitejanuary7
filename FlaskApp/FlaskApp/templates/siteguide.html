@@ -1,0 +1,101 @@
+<!DOCTYPE html> {% extends "base.html" %} {% block content %}
+
+<link href="{{ url_for('static', filename='guidestyle.css') }}" rel="stylesheet">
+
+<body>
+
+    {% include 'nav.html' %}
+
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class='text-center'>Part 1</h3>
+                    <ol>
+                        <li>Configuration of GoDaddy Domain</li>
+                        <li>Digital Ocean Settings</li>
+                        <li>SSH Into Server</li>
+                    </ol>
+                </div>
+                <div class="col-sm-8">
+                    <div class='embed-container'><iframe src='https://www.youtube.com/embed/lc6AviUh-N0' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class='text-center'>Part 2</h3>
+                    <ol>
+                        <li>Install Libapache2 MySQL </li>
+                        <li>Make Directories</li>
+                        <li>Update/Upgrade</li>
+                        <li>Install Pip</li>
+                        <li>Install Flask</li>
+                        <li>Install Virtualenv</li>
+                    </ol>
+                </div>
+                <div class="col-sm-8">
+                    <div class='embed-container'><iframe src='https://www.youtube.com/embed/lc6AviUh-N0' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class='text-center'>Part 3</h3>
+                    <ol>
+                        <li>Fixing our Error</li>
+                        <li>Flask Configuration</li>
+                        <li>WSGI Configuration</li>
+                    </ol>
+                </div>
+                <div class="col-sm-8">
+                    <div class='embed-container'><iframe src='https://www.youtube.com/embed/Eajm4QV0dQ0' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class='text-center'>Part 4</h3>
+                    <ol>
+                        <li>Checking Domain</li>
+                        <li>Checking About Page</li>
+                    </ol>
+                </div>
+                <div class="col-sm-8">
+                    <div class='embed-container'><iframe src='https://www.youtube.com/embed/YxkM96iwjx0' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='footer'>
+                    <h1 class='text-center'>
+                  The Source of all my Knowledge
+                </h1>
+                    <br>
+                    <ol>
+                        <li><a href='https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars'>Digital Ocean Setup:</a>This page is useful for domain configuration</li>
+                        <li><a href='https://pythonprogramming.net'>Python Sentdex:</a>I love this man, A true inspiration for this page</li>
+                        <li><a href='https://www.youtube.com/watch?v=5JnMutdy6Fw&t=2597s'>Brandon Rhodes - Pandas:</a>I watched the first 90 minutes, I am still working on the exercises</li>
+                        <li><a href='https://www.datacamp.com'>Datacamp:Python</a>A great way to learn python through usage.</li>
+                        <li><a href='https://mva.microsoft.com/en-US/training-courses/beginning-web-sites-with-python-and-flask-8677?l=sNshpAH1_8604984382'>Microsoft MOOC on Flask</a>A broad look at Flask, Excellent to learn how flask works.</li>
+
+                    </ol>
+                    <h1 class='text-center'>
+                  Github Repositories
+                </h1>
+                    <ul>
+                        <li><a href='https://github.com/viseth89/websitejanuary7'>This Site's Repository:</a>Look here if you wanna see how this site is structured</li>
+                        <li><a href='https://github.com/viseth89/nbaNotebooks'>NBA Jupytor Notebooks:</a>Look here If you wanna see more examples of Python and Jupyter usage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

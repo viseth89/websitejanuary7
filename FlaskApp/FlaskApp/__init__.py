@@ -1,11 +1,11 @@
 import csv
 import os
+import pandas as pd
 from flask import Flask, render_template, url_for, request, flash, redirect
-from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
-from flask_wtf import Form
+from flask_uploads import UploadSet, configure_uploads, IMAGES
+from flask_wtf import FlaskForm
 from wtforms import FileField
 from werkzeug.utils import secure_filename
-from finals2016 import *
 from Read_Game import Read_Game
 
 app = Flask(__name__)
@@ -17,24 +17,19 @@ configure_uploads(app,photos)
 
 file_dir = ''
 
+class UploadForm(FlaskForm):
+    file = FileField()
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    if request.method == 'POST' and 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
-        rec = Photo(filename=filename, user=g.user.id)
-        rec.store()
-        flash("Photo saved.")
-        return redirect(url_for('show', id=rec.id))
-    return render_template('upload.html')
+    form = UploadForm()
 
-@app.route('/photo/<id>')
-def show(id):
-    photo = Photo.load(id)
-    if photo is None:
-        abort(404)
-    url = photos.url(photo.filename)
-    return render_template('show.html', url=url, photo=photo)
+    if form.validate_on_submit():
+        filename = secure_filename(form.file.data.filename)
+        form.file.data.save('uploads/' + filename)
+        return redirect('index.html')
 
+    return render_template('upload.html', form=form)
 
 @app.route("/")
 def index():
@@ -152,6 +147,17 @@ def phil():
     reboundsa=len(p.trebounds_won),reboundsb=len(p.trebounds_loss),
     assista = len(p.assist_won), assistb=len(p.assist_loss)
     )
+
+
+@app.route('/guide')
+def guide():
+
+    title = 'How to make your own site'
+    body = 'I will show you how'
+
+    return render_template('siteguide.html')
+
+
 
 #Barkley is our test
 
