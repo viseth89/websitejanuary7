@@ -32,3 +32,25 @@ class ReadGame:
         self.wpct = (len(self.wrebounds_won)) / (len(self.trebounds_won))
         self.wwpct = (len(self.wassist_won)) / (len(self.assist_won))
         self.wwwpct = len(self.astrebw)/len(self.astreb)
+
+def GameInfo(read_game, title):
+    gamedict = {
+    'title':title,
+    'edgea':len(read_game.astrebw),
+    'edgeb':len(read_game.astreb),
+    'steala':len(read_game.steal_won),
+    'stealb':len(read_game.steal_loss),
+    'turnovera' : len(read_game.turnover_w),
+    'turnoverb' : len(read_game.turnover_l),
+    'blocksa' : len(read_game.blocks_won),
+    'blocksb' : len(read_game.blocks_loss),
+    'oreboundsa':len(read_game.orebounds_won),
+    'oreboundsb':len(read_game.orebounds_loss),
+    'reboundsa':len(read_game.trebounds_won),
+    'reboundsb':len(read_game.trebounds_loss),
+    'assista' : len(read_game.assist_won),
+    'assistb':len(read_game.assist_loss),
+    'wins' : len(read_game.wins),
+    'loss' : len(read_game.loss)
+}
+    return gamedict
