@@ -87,247 +87,239 @@
 
 <script>
 
-window.chartColors = {
-    red: 'rgb(255, 99, 132)',
-    orange: 'rgb(255, 159, 64)',
-    yellow: 'rgb(255, 205, 86)',
-    green: 'rgb(75, 192, 192)',
-    blue: 'rgb(54, 162, 235)',
-    purple: 'rgb(153, 102, 255)',
-    grey: 'rgb(231,233,237)'
-};
+    window.chartColors = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(231,233,237)'
+    };
 
-window.randomScalingFactor = function () {
-    return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-};
-var color = Chart.helpers.color;
+    window.randomScalingFactor = function () {
+        return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+    };
 
-var data = {
-  labels: [
-    "Bulls",
-    "Other",
-    ],
-datasets: [
-{
-    data: [ {{assista}} ,{{ assistb }} ],
-    backgroundColor: [
-        "#FF6384",
-        "grey",
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "grey",
-    ]
-}]
-};
+    var data = {
+        labels: [
+            "{{ cteam }}",
+            "Other"
+        ],
+        datasets: [
+            {
+                data: [{{assista}}, {{ assistb }}],
+                backgroundColor: [
+                    "{{ color1 }}",
+                  '{{ color2 }}'
+                ],
+                hoverBackgroundColor: [
+                  "{{ color1 }}",
+                '{{ color2 }}'
+                ]
+            }]
+    };
 
-var data2 = {
-  labels: [
-    "Bulls",
-    "Other",
-    ],
-datasets: [
-{
-    data: [{{reboundsa}}, {{reboundsb}}, ],
-    backgroundColor: [
-        "red",
-        "grey",
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "grey",
-    ]
-}]
-};
-
+    var data2 = {
+        labels: [
+            "{{ cteam }}",
+            "Other"
+        ],
+        datasets: [
+            {
+                data: [{{reboundsa}}, {{reboundsb}}],
+                backgroundColor: [
+                  "{{ color3 }}",
+                '{{ color2 }}'
+                ],
+                hoverBackgroundColor: [
+                  "{{ color3 }}",
+                '{{ color2 }}'
+                ]
+            }]
+    };
 
 
-var data3 = {
-  labels: [
-    "Bulls",
-    "Other",
-    ],
-datasets: [
-{
-    data: [{{oreboundsa}},{{oreboundsb}}],
-    backgroundColor: [
-        "#FF6384",
-        "grey",
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "grey",
-    ]
-}]
-};
+    var data3 = {
+        labels: [
+            "{{ cteam }}",
+            "Other"
+        ],
+        datasets: [
+            {
+                data: [{{oreboundsa}}, {{oreboundsb}}],
+                backgroundColor: [
+                  "{{ color1 }}",
+                '{{ color2 }}'
+                ],
+                hoverBackgroundColor: [
+                  "{{ color1 }}",
+                '{{ color2 }}'
+                ]
+            }]
+    };
 
 
-
-var data4 = {
-  labels: [
-    "Bulls",
-    "Other",
-    ],
-      datasets: [
-      {
-          data: [{{turnoverb}}, {{turnovera}}],
-          backgroundColor: [
-              "red",
-              "grey",
-          ],
-          hoverBackgroundColor: [
-              "#FF6384",
-              "grey",
-          ]
-}]
-};
-
+    var data4 = {
+        labels: [
+            "{{ cteam }}",
+            "Other"
+        ],
+        datasets: [
+            {
+                data: [{{turnoverb}}, {{turnovera}}],
+                backgroundColor: [
+                  "{{ color3 }}",
+                '{{ color2 }}'
+                ],
+                hoverBackgroundColor: [
+                  "{{ color3 }}",
+                '{{ color2 }}'
+                ]
+            }]
+    };
 
 
+    var data5 = {
+        labels: [
+            "{{ cteam }}",
+            "Other"
+        ],
+        datasets: [
+            {
+                data: [{{steala}}, {{stealb}}],
+                backgroundColor: [
+                  "{{ color1 }}",
+                '{{ color2 }}'
+                ],
+                hoverBackgroundColor: [
+                  "{{ color1 }}",
+                '{{ color2 }}'
+                ]
+            }]
+    };
 
-var data5 = {
-    labels: [
-      "Bulls",
-      "Other",
-      ],
-      datasets: [
-      {
-          data: [{{steala}}, {{stealb}}],
-          backgroundColor: [
-              "#FF6384",
-              "grey",
-          ],
-          hoverBackgroundColor: [
-              "#FF6384",
-              "grey",
-    ]
-}]
-};
+    var data6 = {
+        labels: [
+            "{{ cteam }}",
+            "Other"
+        ],
+        datasets: [
+            {
+                data: [{{blocksa}}, {{blocksb}}],
+                backgroundColor: [
+                  "{{ color3 }}",
+                '{{ color2 }}'
+                ],
+                hoverBackgroundColor: [
+                  "{{ color3 }}",
+                '{{ color2 }}'
+                ]
+            }]
+    };
 
-var data6 = {
-    labels: [
-"Bulls",
-"Other",
-],
-datasets: [
-{
-    data: [{{blocksa}},{{blocksb}}],
-    backgroundColor: [
-        "red",
-        "grey",
-    ],
-    hoverBackgroundColor: [
-        "#FF6384",
-        "grey",
-    ]
-}]
-};
+    window.onload = function () {
 
-window.onload = function () {
+        var chart1 = document.getElementById("canvas1").getContext("2d");
+        window.myBar = new Chart(chart1, {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'Dominance on Assists:'
+                }
+            }
+        });
 
+        var chart2 = document.getElementById("canvas2").getContext("2d");
+        window.myBar = new Chart(chart2, {
+            type: 'pie',
+            data: data2,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'Dominance on Boards:'
+                }
+            }
+        });
 
+        var chart3 = document.getElementById("canvas3").getContext("2d");
+        window.myBar = new Chart(chart3, {
+            type: 'pie',
+            data: data3,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'Dominance on Offensive Rebounds:'
+                }
+            }
+        });
 
-var chart1 = document.getElementById("canvas1").getContext("2d");
-window.myBar = new Chart(chart1, {
-    type: 'pie',
-    data: data,
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top'
-        },
-        title: {
-            display: true,
-            text: 'Dominance on Assists:'
-        }
-    }
-});
+        var chart4 = document.getElementById("canvas4").getContext("2d");
+        window.myBar = new Chart(chart4, {
+            type: 'pie',
+            data: data4,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'How well did they Keep the Ball Safe vs '
+                }
+            }
+        });
 
-var chart2 = document.getElementById("canvas2").getContext("2d");
-window.myBar = new Chart(chart2, {
-    type: 'pie',
-    data: data2,
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top'
-        },
-        title: {
-            display: true,
-            text: 'Dominance on Boards:'
-        }
-    }
-});
+        var chart5 = document.getElementById("canvas5").getContext("2d");
+        window.myBar = new Chart(chart5, {
+            type: 'pie',
+            data: data5,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'How dominant were they on Defensive Steals'
+                }
+            }
+        });
 
-var chart3 = document.getElementById("canvas3").getContext("2d");
-window.myBar = new Chart(chart3, {
-    type: 'pie',
-    data: data3,
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top'
-        },
-        title: {
-            display: true,
-            text: 'Dominance on Offensive Rebounds:'
-        }
-    }
-});
-
-var chart4 = document.getElementById("canvas4").getContext("2d");
-window.myBar = new Chart(chart4,{
-  type: 'pie',
-  data: data4,
-  options: {
-      responsive: true,
-      legend: {
-          position: 'top'
-      },
-      title: {
-          display: true,
-          text: 'How well did they Keep the Ball Safe vs '
-      }
-  }
-});
-
-var chart5 = document.getElementById("canvas5").getContext("2d");
-window.myBar = new Chart(chart5,{
-  type: 'pie',
-  data: data5,
-  options: {
-      responsive: true,
-      legend: {
-          position: 'top'
-      },
-      title: {
-          display: true,
-          text: 'How dominant were they on Defensive Steals'
-      }
-  }
-});
-
-var chart6 = document.getElementById("canvas6").getContext("2d");
-window.myBar = new Chart(chart6,{
-  type: 'pie',
-  data: data6,
-  options: {
-      responsive: true,
-      legend: {
-          position: 'top'
-      },
-      title: {
-          display: true,
-          text: 'How was more dominant on Defensive Blocks'
-      }
-  }
-});
+        var chart6 = document.getElementById("canvas6").getContext("2d");
+        window.myBar = new Chart(chart6, {
+            type: 'pie',
+            data: data6,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'How was more dominant on Defensive Blocks'
+                }
+            }
+        });
 
 
-};
+    };
 
 </script>
-
     </body>
 </html>
 {% endblock %}

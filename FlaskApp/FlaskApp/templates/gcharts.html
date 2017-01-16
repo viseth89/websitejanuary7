@@ -1,9 +1,7 @@
 <html>
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-
-    <body>
+<body>
 
     {% include 'nav.html' %}
 
@@ -11,8 +9,7 @@
     <div class='container'>
         <div class="row">
             <div class='col-md-12'>
-                <img src="{{ url_for('static', filename='grizzlies.jpg') }}" alt="Bulls Team Lineup"
-                     class='center-block img-responsive'>
+                <img src="{{ url_for('static', filename='grizzlies.jpg') }}" alt="Vancouver Grizzlies" class='center-block img-responsive'>
             </div>
         </div>
 
@@ -33,7 +30,8 @@
                     <canvas id="canvas1"></canvas>
                     <br>
                     <p>Team > Opponents in : {{ assista }} games </p>
-                    <p>Team < Opponents in : {{ assistb }} games </p>
+                    <p>Team
+                        < Opponents in : {{ assistb }} games </p>
                 </div>
 
 
@@ -41,14 +39,16 @@
                     <canvas id="canvas2"></canvas>
                     <br>
                     <p>Team > Opponents in : {{ reboundsa }} games </p>
-                    <p>Team < Opponents in : {{ reboundsb }} games </p>
+                    <p>Team
+                        < Opponents in : {{ reboundsb }} games </p>
                 </div>
 
                 <div class='col-md-4'>
                     <canvas id="canvas3"></canvas>
                     <br>
                     <p>Team > Opponents in : {{ oreboundsa }} games </p>
-                    <p>Team < Opponents in : {{ oreboundsb }} games </p>
+                    <p>Team
+                        < Opponents in : {{ oreboundsb }} games </p>
                 </div>
             </div>
 
@@ -61,7 +61,8 @@
                     <canvas id="canvas4"></canvas>
                     <br>
                     <p>Team > Opponents in : {{ turnovera }} games </p>
-                    <p>Team < Opponents in : {{ turnoverb }} games </p>
+                    <p>Team
+                        < Opponents in : {{ turnoverb }} games </p>
                 </div>
 
 
@@ -69,14 +70,16 @@
                     <canvas id="canvas5"></canvas>
                     <br>
                     <p>Team > Opponents in : {{ steala }} games </p>
-                    <p>Team < Opponents in : {{ stealb }} games </p>
+                    <p>Team
+                        < Opponents in : {{ stealb }} games </p>
                 </div>
 
                 <div class='col-md-4'>
                     <canvas id="canvas6"></canvas>
                     <br>
                     <p>Team > Opponents in : {{ blocksa }} games </p>
-                    <p>Team < Opponents in : {{ blocksb }} games </p>
+                    <p>Team
+                        < Opponents in : {{ blocksb }} games </p>
                 </div>
             </div>
         </div>
@@ -85,7 +88,6 @@
 
 
         <script>
-
             window.chartColors = {
                 red: 'rgb(255, 99, 132)',
                 orange: 'rgb(255, 159, 64)',
@@ -96,7 +98,7 @@
                 grey: 'rgb(231,233,237)'
             };
 
-            window.randomScalingFactor = function () {
+            window.randomScalingFactor = function() {
                 return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
             };
 
@@ -105,18 +107,25 @@
                     "{{ cteam }}",
                     "Other"
                 ],
-                datasets: [
-                    {
-                        data: [{{assista}}, {{ assistb }}],
-                        backgroundColor: [
-                            "{{ color1 }}",
-                          '{{ color2 }}'
-                        ],
-                        hoverBackgroundColor: [
-                          "{{ color1 }}",
+                datasets: [{
+                    data: [{
+                        {
+                            assista
+                        }
+                    }, {
+                        {
+                            assistb
+                        }
+                    }],
+                    backgroundColor: [
+                        "{{ color1 }}",
                         '{{ color2 }}'
-                        ]
-                    }]
+                    ],
+                    hoverBackgroundColor: [
+                        "{{ color1 }}",
+                        '{{ color2 }}'
+                    ]
+                }]
             };
 
             var data2 = {
@@ -124,18 +133,25 @@
                     "{{ cteam }}",
                     "Other"
                 ],
-                datasets: [
-                    {
-                        data: [{{reboundsa}}, {{reboundsb}}],
-                        backgroundColor: [
-                          "{{ color3 }}",
+                datasets: [{
+                    data: [{
+                        {
+                            reboundsa
+                        }
+                    }, {
+                        {
+                            reboundsb
+                        }
+                    }],
+                    backgroundColor: [
+                        "{{ color3 }}",
                         '{{ color2 }}'
-                        ],
-                        hoverBackgroundColor: [
-                          "{{ color3 }}",
+                    ],
+                    hoverBackgroundColor: [
+                        "{{ color3 }}",
                         '{{ color2 }}'
-                        ]
-                    }]
+                    ]
+                }]
             };
 
 
@@ -144,18 +160,25 @@
                     "{{ cteam }}",
                     "Other"
                 ],
-                datasets: [
-                    {
-                        data: [{{oreboundsa}}, {{oreboundsb}}],
-                        backgroundColor: [
-                          "{{ color1 }}",
+                datasets: [{
+                    data: [{
+                        {
+                            oreboundsa
+                        }
+                    }, {
+                        {
+                            oreboundsb
+                        }
+                    }],
+                    backgroundColor: [
+                        "{{ color1 }}",
                         '{{ color2 }}'
-                        ],
-                        hoverBackgroundColor: [
-                          "{{ color1 }}",
+                    ],
+                    hoverBackgroundColor: [
+                        "{{ color1 }}",
                         '{{ color2 }}'
-                        ]
-                    }]
+                    ]
+                }]
             };
 
 
@@ -164,18 +187,25 @@
                     "{{ cteam }}",
                     "Other"
                 ],
-                datasets: [
-                    {
-                        data: [{{turnoverb}}, {{turnovera}}],
-                        backgroundColor: [
-                          "{{ color3 }}",
+                datasets: [{
+                    data: [{
+                        {
+                            turnoverb
+                        }
+                    }, {
+                        {
+                            turnovera
+                        }
+                    }],
+                    backgroundColor: [
+                        "{{ color3 }}",
                         '{{ color2 }}'
-                        ],
-                        hoverBackgroundColor: [
-                          "{{ color3 }}",
+                    ],
+                    hoverBackgroundColor: [
+                        "{{ color3 }}",
                         '{{ color2 }}'
-                        ]
-                    }]
+                    ]
+                }]
             };
 
 
@@ -184,18 +214,25 @@
                     "{{ cteam }}",
                     "Other"
                 ],
-                datasets: [
-                    {
-                        data: [{{steala}}, {{stealb}}],
-                        backgroundColor: [
-                          "{{ color1 }}",
+                datasets: [{
+                    data: [{
+                        {
+                            steala
+                        }
+                    }, {
+                        {
+                            stealb
+                        }
+                    }],
+                    backgroundColor: [
+                        "{{ color1 }}",
                         '{{ color2 }}'
-                        ],
-                        hoverBackgroundColor: [
-                          "{{ color1 }}",
+                    ],
+                    hoverBackgroundColor: [
+                        "{{ color1 }}",
                         '{{ color2 }}'
-                        ]
-                    }]
+                    ]
+                }]
             };
 
             var data6 = {
@@ -203,21 +240,28 @@
                     "{{ cteam }}",
                     "Other"
                 ],
-                datasets: [
-                    {
-                        data: [{{blocksa}}, {{blocksb}}],
-                        backgroundColor: [
-                          "{{ color3 }}",
+                datasets: [{
+                    data: [{
+                        {
+                            blocksa
+                        }
+                    }, {
+                        {
+                            blocksb
+                        }
+                    }],
+                    backgroundColor: [
+                        "{{ color3 }}",
                         '{{ color2 }}'
-                        ],
-                        hoverBackgroundColor: [
-                          "{{ color3 }}",
+                    ],
+                    hoverBackgroundColor: [
+                        "{{ color3 }}",
                         '{{ color2 }}'
-                        ]
-                    }]
+                    ]
+                }]
             };
 
-            window.onload = function () {
+            window.onload = function() {
 
                 var chart1 = document.getElementById("canvas1").getContext("2d");
                 window.myBar = new Chart(chart1, {
@@ -317,9 +361,9 @@
 
 
             };
-
         </script>
     </div>
-    </body>
-    </html>
+</body>
+
+</html>
 {% endblock %}

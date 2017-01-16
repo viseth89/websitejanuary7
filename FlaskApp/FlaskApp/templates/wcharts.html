@@ -11,7 +11,7 @@
     <div class='container'>
         <div class="row">
             <div class='col-md-12'>
-                <img src="{{ url_for('static', filename='warriors.jpg') }}" alt="Bulls Team Lineup"
+                <img src="{{ url_for('static', filename='warriors.jpg') }}" alt="Warriors Team Lineup"
                      class='center-block img-responsive'>
             </div>
         </div>
@@ -102,38 +102,38 @@
 
             var data = {
                 labels: [
-                    "Warriors",
+                    "{{ cteam }}",
                     "Other"
                 ],
                 datasets: [
                     {
                         data: [{{assista}}, {{ assistb }}],
                         backgroundColor: [
-                            "orange",
-                            "grey"
+                            "{{ color1 }}",
+                          '{{ color2 }}'
                         ],
                         hoverBackgroundColor: [
-                            "orange",
-                            "grey"
+                          "{{ color1 }}",
+                        '{{ color2 }}'
                         ]
                     }]
             };
 
             var data2 = {
                 labels: [
-                    "Warriors",
+                    "{{ cteam }}",
                     "Other"
                 ],
                 datasets: [
                     {
                         data: [{{reboundsa}}, {{reboundsb}}],
                         backgroundColor: [
-                            "purple",
-                            "grey"
+                          "{{ color3 }}",
+                        '{{ color2 }}'
                         ],
                         hoverBackgroundColor: [
-                            "purple",
-                            "grey"
+                          "{{ color3 }}",
+                        '{{ color2 }}'
                         ]
                     }]
             };
@@ -141,19 +141,19 @@
 
             var data3 = {
                 labels: [
-                    "Warriors",
+                    "{{ cteam }}",
                     "Other"
                 ],
                 datasets: [
                     {
                         data: [{{oreboundsa}}, {{oreboundsb}}],
                         backgroundColor: [
-                            "orange",
-                            "grey"
+                          "{{ color1 }}",
+                        '{{ color2 }}'
                         ],
                         hoverBackgroundColor: [
-                            "orange",
-                            "grey"
+                          "{{ color1 }}",
+                        '{{ color2 }}'
                         ]
                     }]
             };
@@ -161,19 +161,19 @@
 
             var data4 = {
                 labels: [
-                    "Warriors",
+                    "{{ cteam }}",
                     "Other"
                 ],
                 datasets: [
                     {
                         data: [{{turnoverb}}, {{turnovera}}],
                         backgroundColor: [
-                            "purple",
-                            "grey"
+                          "{{ color3 }}",
+                        '{{ color2 }}'
                         ],
                         hoverBackgroundColor: [
-                            "purple",
-                            "grey"
+                          "{{ color3 }}",
+                        '{{ color2 }}'
                         ]
                     }]
             };
@@ -181,38 +181,38 @@
 
             var data5 = {
                 labels: [
-                    "Warriors",
+                    "{{ cteam }}",
                     "Other"
                 ],
                 datasets: [
                     {
                         data: [{{steala}}, {{stealb}}],
                         backgroundColor: [
-                            "orange",
-                            "grey"
+                          "{{ color1 }}",
+                        '{{ color2 }}'
                         ],
                         hoverBackgroundColor: [
-                            "orange",
-                            "grey"
+                          "{{ color1 }}",
+                        '{{ color2 }}'
                         ]
                     }]
             };
 
             var data6 = {
                 labels: [
-                    "Warriors",
+                    "{{ cteam }}",
                     "Other"
                 ],
                 datasets: [
                     {
                         data: [{{blocksa}}, {{blocksb}}],
                         backgroundColor: [
-                            "purple",
-                            "grey"
+                          "{{ color3 }}",
+                        '{{ color2 }}'
                         ],
                         hoverBackgroundColor: [
-                            "purple",
-                            "grey"
+                          "{{ color3 }}",
+                        '{{ color2 }}'
                         ]
                     }]
             };
