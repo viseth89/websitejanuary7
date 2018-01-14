@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     header = 'Welcome to NBA Analytics with Python'
-    title = 'Welcome to NBA Analytics with Python'
+    title = 'Welcome to NBA Analytics via Python'
     body = 'Thinkers of the Game'
     return render_template('index.html', header=header, title=title, body=body)
 
