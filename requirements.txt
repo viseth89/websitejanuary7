@@ -1,0 +1,5 @@
+flask
+pandas
+flask_uploads
+flask_wtf
+Werkzeug==0.16.0
